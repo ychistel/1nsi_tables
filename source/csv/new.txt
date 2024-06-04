@@ -1,0 +1,6 @@
+nom,prenom,age
+Victor,Émile,16
+Jean,Albert,23
+Cruz,Vera,24
+Cruz,Pénélope,36
+Dylan,Bob,44

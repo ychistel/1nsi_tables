@@ -1,0 +1,20 @@
+id_trajet,inscrit,départ,arrivée,nb_places,heure
+1124,703,caen,rouen,2,9
+1125,901,paris,metz,2,8
+1126,114,strasbourg,lille,1,7
+1127,56,le mans,caen,2,9
+1128,312,tours,paris,2,8
+1129,501,caen,paris,4,7
+1130,411,lille,rouen,3,10
+1131,614,le mans,rouen,3,9
+,,,,,
+id_reserve,inscrit,date,trajet,,
+578,409,12/06/2021,1126,,
+579,407,12/06/2021,1131,,
+580,410,14/06/2021,1127,,
+,,,,,
+id_inscrit,nom,prénom,âge,téléphone,
+407,marie,olivia,27,0644218975,
+408,durand,pierre,24,0635627894,
+409,balot,anicet,32,0724018935,
+410,marie,louis,21,0456127896,

@@ -1,0 +1,2 @@
+nom: conway, prénom: john, spécialité: mathématiques, invention: jeu de la vie
+nom: turing, prénom: alan, spécialité: informaticien, invention: informatique

@@ -1,0 +1,151 @@
+id_trajet,départ,arrivée,date,inscrit,nb_place,nb_reserv
+0,,,,0,0,0
+1,rouen,orléans,2021-06-01,55,4,2
+2,tours,lille,2021-06-06,59,3,1
+3,cherbourg,bordeaux,2021-06-01,86,4,0
+4,le mans,brest,2021-06-08,16,2,0
+5,la rochelle,nantes,2021-06-01,2,3,0
+6,orléans,cherbourg,2021-06-09,71,1,0
+7,amiens,strasbourg,2021-06-04,93,2,0
+8,angers,le mans,2021-06-06,95,4,0
+9,caen,strasbourg,2021-06-08,43,1,0
+10,brest,grenoble,2021-06-03,25,2,1
+11,montpelier,angers,2021-06-05,56,4,0
+12,nantes,tours,2021-06-04,58,3,0
+13,grenoble,rennes,2021-06-10,97,1,0
+14,vannes,paris,2021-06-01,8,4,1
+15,brest,le mans,2021-06-03,56,3,0
+16,orléans,grenoble,2021-06-03,31,2,0
+17,rouen,évreux,2021-06-05,31,1,1
+18,toulon,alençon,2021-06-01,40,2,0
+19,vannes,grenoble,2021-06-02,88,3,0
+20,bordeaux,paris,2021-06-10,27,4,2
+21,toulouse,strasbourg,2021-05-30,39,4,2
+22,la rochelle,marseille,2021-05-28,68,1,0
+23,paris,le mans,2021-06-02,94,1,0
+24,montpelier,lille,2021-06-02,23,2,1
+25,toulouse,brest,2021-05-31,53,3,1
+26,nantes,évreux,2021-06-06,52,1,1
+27,la rochelle,bordeaux,2021-06-03,44,2,1
+28,grenoble,montpelier,2021-06-02,85,2,0
+29,paris,montpelier,2021-06-10,81,2,0
+30,rouen,nantes,2021-06-01,31,4,0
+31,brest,tours,2021-06-09,41,1,1
+32,rouen,rennes,2021-06-03,51,2,0
+33,rouen,la rochelle,2021-05-30,95,2,0
+34,caen,mulhouse,2021-06-06,47,4,0
+35,tours,cherbourg,2021-06-02,62,1,0
+36,bordeaux,évreux,2021-06-10,62,3,0
+37,nantes,rennes,2021-05-28,33,4,1
+38,lille,strasbourg,2021-06-02,45,3,1
+39,paris,nantes,2021-06-05,11,2,1
+40,rouen,paris,2021-06-01,15,4,0
+41,lille,mulhouse,2021-05-29,5,2,0
+42,toulouse,rennes,2021-06-04,83,2,0
+43,tours,montpelier,2021-06-03,81,2,0
+44,amiens,alençon,2021-06-01,66,4,1
+45,marseille,toulon,2021-06-06,50,2,0
+46,cherbourg,grenoble,2021-05-30,42,3,1
+47,caen,lyon,2021-06-01,22,4,1
+48,évreux,angers,2021-06-02,42,1,1
+49,caen,nantes,2021-06-10,36,4,0
+50,tours,mulhouse,2021-06-05,8,4,0
+51,caen,vannes,2021-06-09,58,2,1
+52,marseille,nantes,2021-06-01,81,3,1
+53,caen,lille,2021-06-08,6,2,0
+54,le mans,lille,2021-06-02,50,3,3
+55,nantes,strasbourg,2021-06-04,85,2,0
+56,toulouse,amiens,2021-06-05,53,4,0
+57,amiens,lyon,2021-06-09,66,4,0
+58,montpelier,caen,2021-06-02,33,2,0
+59,paris,toulon,2021-06-08,47,3,0
+60,mulhouse,brest,2021-06-10,32,4,0
+61,mulhouse,tours,2021-05-30,83,1,0
+62,bordeaux,marseille,2021-06-06,26,4,0
+63,le mans,bordeaux,2021-06-10,97,2,1
+64,la rochelle,montpelier,2021-06-06,41,2,0
+65,orléans,marseille,2021-06-01,46,1,1
+66,lyon,mulhouse,2021-06-01,79,1,0
+67,la rochelle,toulouse,2021-06-08,3,1,1
+68,rennes,lyon,2021-06-03,70,3,0
+69,marseille,caen,2021-06-10,5,4,0
+70,évreux,vannes,2021-06-01,94,3,0
+71,rouen,alençon,2021-06-02,40,4,0
+72,angers,toulouse,2021-06-02,1,4,0
+73,cherbourg,vannes,2021-06-05,80,3,0
+74,amiens,cherbourg,2021-06-04,91,3,1
+75,le mans,la rochelle,2021-05-30,75,4,0
+76,marseille,mulhouse,2021-05-28,90,3,1
+77,mulhouse,nantes,2021-05-31,49,1,1
+78,vannes,grenoble,2021-06-10,96,2,1
+79,bordeaux,montpelier,2021-06-09,16,1,0
+80,brest,tours,2021-06-10,11,2,0
+81,amiens,caen,2021-06-04,55,4,1
+82,toulon,cherbourg,2021-06-09,7,1,1
+83,orléans,mulhouse,2021-05-28,30,2,0
+84,tours,strasbourg,2021-06-07,31,4,1
+85,toulon,amiens,2021-06-10,54,2,0
+86,cherbourg,paris,2021-06-04,98,1,0
+87,rennes,caen,2021-05-29,65,2,0
+88,alençon,rennes,2021-06-05,98,4,0
+89,évreux,grenoble,2021-06-06,11,2,2
+90,la rochelle,alençon,2021-06-01,40,2,0
+91,caen,évreux,2021-06-08,64,3,0
+92,lyon,évreux,2021-05-31,56,2,0
+93,lille,lyon,2021-06-09,76,3,0
+94,angers,la rochelle,2021-06-04,69,2,0
+95,strasbourg,tours,2021-06-09,46,2,0
+96,rouen,évreux,2021-06-07,51,4,0
+97,alençon,montpelier,2021-06-03,67,3,1
+98,angers,évreux,2021-05-31,57,2,1
+99,caen,montpelier,2021-06-07,68,1,1
+100,rennes,marseille,2021-06-09,32,4,1
+101,caen,amiens,2021-06-05,83,2,1
+102,lyon,strasbourg,2021-06-01,11,1,0
+103,caen,rouen,2021-06-01,86,4,0
+104,orléans,strasbourg,2021-06-08,84,2,2
+105,orléans,toulouse,2021-06-01,12,1,1
+106,mulhouse,lyon,2021-06-07,33,1,1
+107,amiens,brest,2021-06-10,35,3,2
+108,caen,rennes,2021-06-03,23,3,1
+109,grenoble,rouen,2021-06-06,58,1,0
+110,toulon,bordeaux,2021-05-31,29,1,0
+111,angers,la rochelle,2021-06-03,26,2,0
+112,bordeaux,paris,2021-05-29,11,1,1
+113,amiens,rouen,2021-06-10,27,2,0
+114,bordeaux,montpelier,2021-06-09,40,4,1
+115,orléans,évreux,2021-05-28,89,1,0
+116,nantes,rennes,2021-05-30,74,2,1
+117,lyon,bordeaux,2021-06-04,75,4,2
+118,alençon,évreux,2021-06-10,86,1,0
+119,brest,mulhouse,2021-05-28,99,3,2
+120,strasbourg,brest,2021-06-06,47,4,0
+121,évreux,montpelier,2021-06-05,62,2,0
+122,bordeaux,grenoble,2021-05-28,25,2,1
+123,angers,marseille,2021-06-07,21,1,0
+124,toulon,toulouse,2021-06-10,47,1,0
+125,évreux,tours,2021-06-02,5,1,0
+126,angers,cherbourg,2021-05-28,25,3,0
+127,angers,toulon,2021-06-02,52,3,2
+128,nantes,amiens,2021-06-06,86,2,0
+129,tours,mulhouse,2021-05-30,1,3,0
+130,amiens,tours,2021-06-05,37,4,1
+131,toulon,amiens,2021-06-10,97,3,1
+132,nantes,rennes,2021-06-05,15,3,0
+133,caen,paris,2021-05-29,98,3,1
+134,nantes,paris,2021-06-06,13,2,0
+135,la rochelle,mulhouse,2021-06-05,10,4,0
+136,la rochelle,évreux,2021-05-28,17,3,0
+137,lyon,caen,2021-06-08,57,4,1
+138,paris,grenoble,2021-05-28,80,2,0
+139,alençon,paris,2021-06-04,40,1,0
+140,caen,brest,2021-06-03,41,3,1
+141,bordeaux,tours,2021-06-02,54,3,0
+142,caen,toulon,2021-06-02,15,3,0
+143,marseille,strasbourg,2021-06-01,73,4,2
+144,paris,le mans,2021-05-31,9,4,0
+145,bordeaux,toulouse,2021-06-02,73,2,0
+146,la rochelle,alençon,2021-05-29,98,4,1
+147,bordeaux,paris,2021-06-10,3,2,0
+148,vannes,cherbourg,2021-06-08,32,2,0
+149,nantes,cherbourg,2021-05-30,92,3,0
