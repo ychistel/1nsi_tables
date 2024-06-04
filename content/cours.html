@@ -1,0 +1,545 @@
+
+<!DOCTYPE html>
+
+
+<html lang="fr" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Structure de données en tables &#8212; &lt;a href=&#34;https://ychistel.github.io/cours/content/1nsi.html&#34;&gt;NSI&lt;/a&gt;</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=7b5e20a6" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
+
+    <script src="../_static/documentation_options.js?v=72dce1d2"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script src="../_static/translations.js?v=bf059b8c"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content/cours';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="prev" title="Les données en table" href="../index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="fr"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Passer au contenu principal</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Haut de page</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title"><a href="https://ychistel.github.io/cours/content/1nsi.html">NSI</a></p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Recherche" aria-label="Recherche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Recherche</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Structure de données en tables</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Téléchargez cette page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/content/cours.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Télécharger le fichier source"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimer au format PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Mode plein écran"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="clair/sombre" aria-label="clair/sombre" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Recherche" aria-label="Recherche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Structure de données en tables</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contenu </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#une-premiere-table">Une première table</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-en-python">Table en Python</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-et-fichier-csv">Python et fichier csv</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="structure-de-donnees-en-tables">
+<h1>Structure de données en tables<a class="headerlink" href="#structure-de-donnees-en-tables" title="Lien vers cette rubrique">#</a></h1>
+<p>La manipulation de données en informatique nécessite de les structurer en faisant un choix adapté. La structure choisie doit permettre :</p>
+<ul class="simple">
+<li><p>de modifier, ajouter, supprimer une donnée le plus simplement possible;</p></li>
+<li><p>de pouvoir accéder rapidement à une donnée souhaitée;</p></li>
+<li><p>éviter la redondance des données;</p></li>
+<li><p>de conserver les données, les enregistrer pour les réutiliser.</p></li>
+</ul>
+<p>La liste n’est pas exhaustive, d’autres actions sont possibles.</p>
+<p>Il existe une structure de donnée qui permet de respecter cet ensemble de contraintes et se présente sous forme de tables.</p>
+<p>On va réaliser une table de données regroupant des informations sur des personnalités qui ont contribué au développement de l’informatique. On va utiliser le modèle de fiche suivant:</p>
+<div class="center docutils container">
+<div class="pst-scrollable-table-container"><table class="table">
+<tbody>
+<tr class="row-odd"><td><p>nom:</p></td>
+</tr>
+<tr class="row-even"><td><p>prénom:</p></td>
+</tr>
+<tr class="row-odd"><td><p>nationalité:</p></td>
+</tr>
+<tr class="row-even"><td><p>invention:</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>Créer trois fiches sur <strong>Alan Turing</strong>, <strong>John Conway</strong> et <strong>Ada Lovelace</strong> en effectuant les recherches sur wikipedia.</p>
+<section id="une-premiere-table">
+<h2>Une première table<a class="headerlink" href="#une-premiere-table" title="Lien vers cette rubrique">#</a></h2>
+<ol class="arabic simple">
+<li><p>Regrouper et organiser les données de ces trois fiches dans un même tableau.</p></li>
+<li><p>Il existe des fichiers dont l’extension est <strong>csv</strong>.</p>
+<ol class="loweralpha simple">
+<li><p>Que signifie cette extension ? Quel est l’usage des fichiers <strong>csv</strong>.</p></li>
+<li><p>Donner des applications qui permettent de créer un fichier <strong>csv</strong> ?</p></li>
+</ol>
+</li>
+<li><p>Dans un tableur, saisissez les données des trois fiches puis enregistrer les données dans un fichier <code class="docutils literal notranslate"><span class="pre">table.csv</span></code> avec l’extension csv.</p></li>
+<li><p>Ouvrir votre fichier <code class="docutils literal notranslate"><span class="pre">table.csv</span></code> avec le bloc-notes et vérifier la cohérence des données, leur présentation.</p></li>
+<li><p>Ajouter dans le fichier <code class="docutils literal notranslate"><span class="pre">table.csv</span></code> ouvert avec le bloc-notes la fiche de <code class="docutils literal notranslate"><span class="pre">Guido</span> <span class="pre">von</span> <span class="pre">Rossum</span></code> puis enregistrer.</p></li>
+<li><p>Ouvrir le fichier <code class="docutils literal notranslate"><span class="pre">table.csv</span></code> avec un tableur et vérifier la présence de toutes les fiches.</p></li>
+</ol>
+</section>
+<section id="table-en-python">
+<h2>Table en Python<a class="headerlink" href="#table-en-python" title="Lien vers cette rubrique">#</a></h2>
+<p>En python, une table peut se construire sous la forme d’une <strong>liste</strong> de <strong>dictionnaires</strong>. Comme Python est un langage de programmation, il permet de manipuler directement les données avec des scripts.</p>
+<ol class="arabic">
+<li><p>Écrire en Python la table <code class="docutils literal notranslate"><span class="pre">persinfo</span></code> regroupant les trois fiches. Chaque fiche est un dictionnaire et la table est la liste de ces dictionnaires.</p></li>
+<li><p>Dans l’interpréteur ou un éditeur python, saisir les commandes pour:</p>
+<ol class="loweralpha simple">
+<li><p>connaître le nombre de fiches;</p></li>
+<li><p>récupérer les clefs des fiches de la table;</p></li>
+<li><p>récupérer les nationalités des fiches de la table;</p></li>
+<li><p>tester la présence de Turing dans la table;</p></li>
+</ol>
+</li>
+<li><p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">chercher</span></code> qui a pour paramètres la table et une clef du dictionnaire (fiche) et qui renvoie la liste de toutes les valeurs de la table associée à cette clef. On effectuera un test d’existence de la clef !</p></li>
+<li><p>Rechercher avec votre fonction tous les noms présents dans la table.</p></li>
+<li><p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">est_present</span></code> qui a pour paramètres une table et une fiche dictionnaire et vérifie la présence de la fiche dans la table. La fonction renvoie <code class="docutils literal notranslate"><span class="pre">True</span></code> si la fiche est dans la table, <code class="docutils literal notranslate"><span class="pre">False</span></code> sinon.</p></li>
+<li><p>On souhaite créer une fonction <code class="docutils literal notranslate"><span class="pre">ajouter_fiche</span></code> qui ajoute une fiche dans la table si:</p>
+<ul class="simple">
+<li><p>la fiche a bien les mêmes clefs;</p></li>
+<li><p>il y a au moins un nom, les autres valeurs peuvent être vides;</p></li>
+<li><p>la fiche n’est pas déjà dans la table.</p></li>
+</ul>
+<ol class="loweralpha simple">
+<li><p>Écrire la fonction qui a pour paramètres la table et un dictionnaire fiche.</p></li>
+<li><p>Ajouter avec votre fonction la fiche de Guido von Rossum.</p></li>
+<li><p>Tester votre fonction avec des cas particuliers : fiche vide, fiche déjà présente, fiche sans nom.</p></li>
+</ol>
+</li>
+<li><p>Créer une fonction <code class="docutils literal notranslate"><span class="pre">saisir_fiche</span></code> qui permet d’ajouter des fiches dans la table avec des <code class="docutils literal notranslate"><span class="pre">input</span></code>.</p></li>
+</ol>
+</section>
+<section id="python-et-fichier-csv">
+<h2>Python et fichier csv<a class="headerlink" href="#python-et-fichier-csv" title="Lien vers cette rubrique">#</a></h2>
+<p>Il ne pas confondre les variables avec les données. Un programme s’écrit avec des variables qui vont stocker des données. Ces données peuvent être définies dans le programme, calculées par le programme, etc.</p>
+<p>Les données peuvent être saisies par l’utilisateur du programme. Un programme peut utiliser des données provenant d’un fichier structuré comme le csv.</p>
+<p>Il existe en Python un module <code class="docutils literal notranslate"><span class="pre">csv</span></code> qui permet :</p>
+<ul class="simple">
+<li><p>de récupérer les données contenues dans un fichier <code class="docutils literal notranslate"><span class="pre">csv</span></code> sous forme de table;</p></li>
+<li><p>d’ajouter, enregistrer les données d’une table python dans un fichier <code class="docutils literal notranslate"><span class="pre">csv</span></code>.</p></li>
+</ul>
+<p>L’accès aux données contenues dans un fichier csv se fait avec la commande <code class="docutils literal notranslate"><span class="pre">with</span> <span class="pre">open</span></code>. Elle prend différents paramètres :</p>
+<ul class="simple">
+<li><p>le nom du fichier csv avec le chemin d’accès;</p></li>
+<li><p>le mode d’accès: <code class="docutils literal notranslate"><span class="pre">mode='r'</span></code> pour lire un contenu, <code class="docutils literal notranslate"><span class="pre">mode='w'</span></code> pour écrire un contenu et <code class="docutils literal notranslate"><span class="pre">mode='a'</span></code> pour ajouter du contenu;</p></li>
+<li><p>l’encodage de caractères du fichier à lire : <code class="docutils literal notranslate"><span class="pre">encoding='utf8'</span></code></p></li>
+<li><p>l’ajout d’une ligne vide pour l’écriture: <code class="docutils literal notranslate"><span class="pre">newline=''</span></code></p></li>
+</ul>
+<ol class="arabic">
+<li><p>Importer le module csv de python : <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">csv</span></code></p></li>
+<li><p>Pour lire le contenu d’un fichier csv, on crée la fonction suivante :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">lire_fichier</span><span class="p">(</span><span class="n">fichier</span><span class="p">):</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">fichier</span><span class="p">,</span><span class="n">mode</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span><span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">data</span><span class="o">=</span><span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+        <span class="n">table</span><span class="o">=</span><span class="p">[]</span>
+        <span class="k">for</span> <span class="n">ligne</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+            <span class="n">table</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">ligne</span><span class="p">))</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">table</span>
+</pre></div>
+</div>
+<p>Ajouter cette fonction à votre fichier.</p>
+</li>
+<li><p>Quel est l’appel qui permet de lire le contenu de votre fichier <code class="docutils literal notranslate"><span class="pre">table.csv</span></code> ?</p></li>
+<li><p>Quel est le type de la variable table renvoyée par la fonction ?</p></li>
+<li><p>Créer la variable <code class="docutils literal notranslate"><span class="pre">table</span></code> qui est une table dont le contenu est celui du fichier <code class="docutils literal notranslate"><span class="pre">table.csv</span></code>.</p></li>
+<li><p>Ajouter à la variable les personnalités <strong>Guido von Rossum</strong> et <strong>Tim Berners-Lee</strong>.</p></li>
+<li><p>Pour écrire dans un fichier, on crée la fonction suivante:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">ecrire_fichier</span><span class="p">(</span><span class="n">fichier</span><span class="p">,</span><span class="n">table</span><span class="p">):</span>
+    <span class="n">clefs</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">table</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">fichier</span><span class="p">,</span><span class="n">mode</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">,</span><span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf8&#39;</span><span class="p">,</span><span class="n">newline</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictWriter</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">clefs</span><span class="p">)</span>
+        <span class="n">data</span><span class="o">.</span><span class="n">writeheader</span><span class="p">()</span>
+        <span class="n">data</span><span class="o">.</span><span class="n">writerows</span><span class="p">(</span><span class="n">table</span><span class="p">)</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Ajouter cette fonction à votre fichier.</p>
+</li>
+<li><p>Écrire le contenu de votre variable <code class="docutils literal notranslate"><span class="pre">table</span></code> dans un fichier <code class="docutils literal notranslate"><span class="pre">table2.csv</span></code>.</p></li>
+<li><p>On va écrire un programme principal qui:</p>
+<ul class="simple">
+<li><p>lit le contenu d’un fichier csv contenant des personnalités du monde informatique;</p></li>
+<li><p>propose l’ajout de nouvelles personnalités dans la table;</p></li>
+<li><p>enregistre dans le même fichier la table et ses nouvelles fiches à la fin de la saisie.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../index.html"
+       title="page précédente">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">précédent</p>
+        <p class="prev-next-title">Les données en table</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contenu
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#une-premiere-table">Une première table</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-en-python">Table en Python</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-et-fichier-csv">Python et fichier csv</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Par Yannick Chistel
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023,Yannick Chistel.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
