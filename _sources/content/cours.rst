@@ -1,6 +1,8 @@
-Structure de données en tables
-==============================
+Données structurées : les tables
+================================
 
+Stucture d'une table
+---------------------
 La manipulation de données en informatique nécessite de les structurer en faisant un choix adapté. La structure choisie doit permettre :
 
 -   de modifier, ajouter, supprimer une donnée le plus simplement possible;
@@ -8,136 +10,154 @@ La manipulation de données en informatique nécessite de les structurer en fais
 -   éviter la redondance des données;
 -   de conserver les données, les enregistrer pour les réutiliser.
 
-La liste n’est pas exhaustive, d’autres actions sont possibles.
+Les ``tables`` sont une structure de données qui respectent ces contraintes. 
 
-Il existe une structure de donnée qui permet de respecter cet ensemble de contraintes et se présente sous forme de tables.
+Une ``table`` est un ensemble de colonnes qui ont chacune un ``descripteur`` et de lignes qui sont les différents ``enregistrements`` contenant des valeurs pour chaque ``descripteur``.
 
-On va réaliser une table de données regroupant des informations sur des personnalités qui ont contribué au développement de l’informatique. On va utiliser le modèle de fiche suivant:
+.. figure:: ../img/table_1.png
+    :align: center
+    :width: 480
 
-.. container:: center
+    Structure de table avec 3 enregistrements
 
-   +--------------+
-   | nom:         |
-   +--------------+
-   | prénom:      |
-   +--------------+
-   | nationalité: |
-   +--------------+
-   | invention:   |
-   +--------------+
+.. admonition:: Application
+    :class: application
 
-Créer trois fiches sur **Alan Turing**, **John Conway** et **Ada Lovelace** en effectuant les recherches sur wikipedia.
+    On souhaite créer une table sur des personnalités qui ont contribué au développement de l’informatique. On va utiliser les descripteurs suivants :
 
-Une première table
--------------------
+    .. table::
+        :class: table bordure 
 
-#.  Regrouper et organiser les données de ces trois fiches dans un même tableau.
-#.  Il existe des fichiers dont l’extension est **csv**.
+        +---+------+------------+---------+
+        |nom|prénom|nationnalité|invention|
+        +---+------+------------+---------+
 
-    a.  Que signifie cette extension ? Quel est l’usage des fichiers **csv**.
-    b.  Donner des applications qui permettent de créer un fichier **csv** ?
+    #.  Rechercher les informations sur ``Alan Turing``, ``John Conway`` et ``Ada Lovelace`` pour créer trois enregistrements.
+    #.  Regrouper et organiser les données de ces trois enregistrements en utilisant un tableur.
+    #.  Il existe des fichiers dont l’extension est **csv**.
 
-#.  Dans un tableur, saisissez les données des trois fiches puis enregistrer les données dans un fichier ``table.csv`` avec l’extension csv.
+        a.  Que signifie cette extension ? Quel est l’usage des fichiers **csv**.
+        b.  Donner des applications qui permettent de créer un fichier **csv** ?
 
-#.  Ouvrir votre fichier ``table.csv`` avec le bloc-notes et vérifier la cohérence des données, leur présentation.
-
-#. Ajouter dans le fichier ``table.csv`` ouvert avec le bloc-notes la fiche de ``Guido von Rossum`` puis enregistrer.
-
-#. Ouvrir le fichier ``table.csv`` avec un tableur et vérifier la présence de toutes les fiches.
+    #.  Enregistrer la table contenant les trois enregistrements dans un fichier ``table.csv``.
+    #.  Ouvrir votre fichier ``table.csv`` avec le bloc-notes et vérifier la cohérence des données.
+    #.  Ajouter dans le fichier ``table.csv`` ouvert avec le bloc-notes un enregistrement sur ``Guido von Rossum`` puis enregistrer.
+    #.  Ouvrir le fichier ``table.csv`` avec un tableur et vérifier la présence de toutes les enregistrements.
 
 Table en Python
 -----------------
 
-En python, une table peut se construire sous la forme d’une **liste** de **dictionnaires**. Comme Python est un langage de programmation, il permet de manipuler directement les données avec des scripts.
+En python, une table se construit sous la forme d'une ``liste`` de ``dictionnaires``. 
 
-#.  Écrire en Python la table ``persinfo`` regroupant les trois fiches. Chaque fiche est un dictionnaire et la table est la liste de ces dictionnaires.
+-   Les ``descripteurs`` de la table sont les clés des dictionnaires. 
+-   Il y a autant de dictionnaires que d'enregistrements.
 
-#.  Dans l’interpréteur ou un éditeur python, saisir les commandes pour:
-    
-    a. connaître le nombre de fiches;
-    b. récupérer les clefs des fiches de la table;
-    c. récupérer les nationalités des fiches de la table;
-    d. tester la présence de Turing dans la table;
+Par exemple, la table de l'illustration précédente se code en Python de la façon suivante:
 
-#.  Écrire une fonction ``chercher`` qui a pour paramètres la table et une clef du dictionnaire (fiche) et qui renvoie la liste de toutes les valeurs de la table associée à cette clef. On effectuera un test d’existence de la clef !
+.. code:: python
 
-#.  Rechercher avec votre fonction tous les noms présents dans la table.
+    table = [
+        {'descripteur 1':'valeur 1-1','descripteur 2': 'valeur 1-2', 'descripteur 3': 'valeur 1-3', 'descripteur 4': 'valeur 1-4'},
+        {'descripteur 1':'valeur 2-1','descripteur 2': 'valeur 2-2', 'descripteur 3': 'valeur 2-3', 'descripteur 4': 'valeur 2-4'},
+        {'descripteur 1':'valeur 3-1','descripteur 2': 'valeur 3-2', 'descripteur 3': 'valeur 3-3', 'descripteur 4': 'valeur 13-4'}
+    ]
 
-#.  Écrire une fonction ``est_present`` qui a pour paramètres une table et une fiche dictionnaire et vérifie la présence de la fiche dans la table. La fonction renvoie ``True`` si la fiche est dans la table, ``False`` sinon.
+Comme Python est un langage de programmation, on manipule directement les données avec des scripts.
 
-#.  On souhaite créer une fonction ``ajouter_fiche`` qui ajoute une fiche dans la table si:
+.. admonition:: Application
+    :class: application
+        
+    #.  Créer en Python la table ``persinfo`` regroupant les enregistrements précédents.
+    #.  Dans l’interpréteur ou un éditeur python, saisir les commandes pour:
+        
+        a. connaître le nombre d'enregistrements;
+        b. récupérer les descripteurs de la table;
+        c. récupérer les nationalités des enregistrements de la table;
+        d. tester la présence de ``Turing`` dans la table;
 
-    -   la fiche a bien les mêmes clefs;
-    -   il y a au moins un nom, les autres valeurs peuvent être vides;
-    -   la fiche n’est pas déjà dans la table.
+    #.  Écrire une fonction ``chercher`` qui a pour paramètres la table et un descripteur et qui renvoie la liste de toutes les valeurs de la table associée à ce descripteur.
 
-    a.  Écrire la fonction qui a pour paramètres la table et un dictionnaire fiche. 
-    b.  Ajouter avec votre fonction la fiche de Guido von Rossum.
-    c.  Tester votre fonction avec des cas particuliers : fiche vide, fiche déjà présente, fiche sans nom.
+        Rechercher avec votre fonction tous les noms présents dans la table ``persinfo``.
 
-#.  Créer une fonction ``saisir_fiche`` qui permet d'ajouter des fiches dans la table avec des ``input``.
+    #.  Écrire une fonction ``est_present`` qui a pour paramètres une table et un enregistrement et qui vérifie la présence de cet enregistrement dans la table. La fonction ``est_present`` renvoie un booléen.
+
+    #.  On souhaite créer une fonction ``ajouter`` qui ajoute un nouvel enregistrement dans la table si:
+
+        -   l'enregistrement a bien les mêmes descripteurs;
+        -   il y a au moins un nom, les autres valeurs peuvent être vides;
+        -   l'enregistrement n'est pas déjà dans la table.
+
+        a.  Écrire la fonction ``ajouter`` qui a pour paramètres la table et un dictionnaire enregistrement. 
+        b.  Ajouter avec votre fonction l'enregistrement de ``Guido von Rossum``.
+        c.  Tester votre fonction avec des enregistrements particuliers :  vide, déjà présent, sans nom.
+
 
 Python et fichier csv
 -----------------------
 
-Il ne pas confondre les variables avec les données. Un programme s’écrit avec des variables qui vont stocker des données. Ces données peuvent être définies dans le programme, calculées par le programme, etc. 
+Un programme Python peut utiliser des données provenant d'un fichier structuré comme le csv. Une fois chargé, la table est enregistrée dans une variable en étant transformée en liste de dictionnaires.
 
-Les données peuvent être saisies par l’utilisateur du programme. Un programme peut utiliser des données provenant d’un fichier structuré comme le csv.
-
-Il existe en Python un module ``csv`` qui permet :
+Cette transformation des données se réalise avec le module ``csv`` qui permet :
 
 -   de récupérer les données contenues dans un fichier ``csv`` sous forme de table;
--   d'ajouter, enregistrer les données d’une table python dans un fichier ``csv``.
+-   d'ajouter, enregistrer les données d'une table python dans un fichier ``csv``.
 
-L’accès aux données contenues dans un fichier csv se fait avec la commande ``with open``. Elle prend différents paramètres :
+L'accès aux données contenues dans un fichier csv se fait avec la commande ``with open``. Elle prend différents paramètres :
 
--   le nom du fichier csv avec le chemin d’accès;
+-   le nom du fichier avec le chemin d’accès;
 -   le mode d’accès: ``mode='r'`` pour lire un contenu, ``mode='w'`` pour écrire un contenu et ``mode='a'`` pour ajouter du contenu;
 -   l'encodage de caractères du fichier à lire : ``encoding='utf8'``
 -   l'ajout d'une ligne vide pour l'écriture: ``newline=''``
+-   en fin de ligne on utilise la commande ``as`` pour créer un alias du nom de fichier ouvert.
 
-#.  Importer le module csv de python : ``import csv``
-#.  Pour lire le contenu d’un fichier csv, on crée la fonction suivante :
+.. code:: python
+    :caption: Python
 
-    .. code:: python
+    with open(fichier, mode = 'r', encoding = 'utf8') as f:
 
-      def lire_fichier(fichier):
-          with open(fichier,mode='r',encoding='utf8') as f:
-              data=csv.DictReader(f)
-              table=[]
-              for ligne in data:
-                  table.append(dict(ligne))
-              f.close()
-          return table
+.. admonition:: Application
+    :class: application
 
-    Ajouter cette fonction à votre fichier.
+    #.  Importer le module csv de python : ``import csv``
+    #.  Pour lire le contenu d’un fichier csv, on crée la fonction suivante :
 
-#.  Quel est l'appel qui permet de lire le contenu de votre fichier ``table.csv`` ?
-#.  Quel est le type de la variable table renvoyée par la fonction ?
-#. Créer la variable ``table`` qui est une table dont le contenu est celui du fichier ``table.csv``.
+        .. code:: python
 
-#.  Ajouter à la variable les personnalités **Guido von Rossum** et **Tim Berners-Lee**.
+            def lire_fichier(fichier):
+                with open(fichier,mode='r',encoding='utf8') as f:
+                    data=csv.DictReader(f)
+                    table=[]
+                    for ligne in data:
+                        table.append(dict(ligne))
+                    f.close()
+                return table
 
-#.  Pour écrire dans un fichier, on crée la fonction suivante:
+        Ajouter cette fonction à votre fichier.
 
-    .. code:: python
+    #.  Quel est l'appel qui permet de lire le contenu de votre fichier ``table.csv`` ?
+    #.  Quel est le type de la variable table renvoyée par la fonction ?
+    #. Créer la variable ``table`` qui est une table dont le contenu est celui du fichier ``table.csv``.
 
-      def ecrire_fichier(fichier,table):
-          clefs=list(table[0].keys())
-          with open(fichier,mode='w',encoding='utf8',newline='') as f:
-              data = csv.DictWriter(f,clefs)
-              data.writeheader()
-              data.writerows(table)
-              f.close()
+    #.  Ajouter à la variable les personnalités **Guido von Rossum** et **Tim Berners-Lee**.
 
-    Ajouter cette fonction à votre fichier.
+    #.  Pour écrire dans un fichier, on crée la fonction suivante:
 
-#.  Écrire le contenu de votre variable ``table`` dans un fichier ``table2.csv``.
+        .. code:: python
 
-#.  On va écrire un programme principal qui:
+            def ecrire_fichier(fichier,table):
+                clefs=list(table[0].keys())
+                with open(fichier,mode='w',encoding='utf8',newline='') as f:
+                    data = csv.DictWriter(f,clefs)
+                    data.writeheader()
+                    data.writerows(table)
+                    f.close()
 
-    -   lit le contenu d’un fichier csv contenant des personnalités du monde informatique;
+        Ajouter cette fonction à votre fichier.
 
-    -   propose l'ajout de nouvelles personnalités dans la table;
+    #.  Écrire le contenu de votre variable ``table`` dans un fichier ``table2.csv``.
 
-    -   enregistre dans le même fichier la table et ses nouvelles fiches à la fin de la saisie.
+    #.  On va écrire un programme principal qui:
+
+        -   lit le contenu d’un fichier csv contenant des personnalités du monde informatique;
+        -   propose l'ajout de nouvelles personnalités dans la table;
+        -   enregistre dans le même fichier la table et ses nouvelles fiches à la fin de la saisie.

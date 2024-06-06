@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Structure de données en tables &#8212; &lt;a href=&#34;https://ychistel.github.io/cours/content/1nsi.html&#34;&gt;NSI&lt;/a&gt;</title>
+    <title>Données structurées : les tables &#8212; &lt;a href=&#34;https://ychistel.github.io/cours/content/1nsi.html&#34;&gt;NSI&lt;/a&gt;</title>
   
   
   
@@ -31,7 +31,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=7b5e20a6" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=6315c5d3" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
@@ -152,7 +152,7 @@
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Structure de données en tables</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Données structurées : les tables</a></li>
 </ul>
 
     </div>
@@ -291,7 +291,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Structure de données en tables</h1>
+    <h1>Données structurées : les tables</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -301,7 +301,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#une-premiere-table">Une première table</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stucture-d-une-table">Stucture d’une table</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-en-python">Table en Python</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-et-fichier-csv">Python et fichier csv</a></li>
 </ul>
@@ -315,8 +315,10 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="structure-de-donnees-en-tables">
-<h1>Structure de données en tables<a class="headerlink" href="#structure-de-donnees-en-tables" title="Lien vers cette rubrique">#</a></h1>
+  <section id="donnees-structurees-les-tables">
+<h1>Données structurées : les tables<a class="headerlink" href="#donnees-structurees-les-tables" title="Lien vers cette rubrique">#</a></h1>
+<section id="stucture-d-une-table">
+<h2>Stucture d’une table<a class="headerlink" href="#stucture-d-une-table" title="Lien vers cette rubrique">#</a></h2>
 <p>La manipulation de données en informatique nécessite de les structurer en faisant un choix adapté. La structure choisie doit permettre :</p>
 <ul class="simple">
 <li><p>de modifier, ajouter, supprimer une donnée le plus simplement possible;</p></li>
@@ -324,88 +326,115 @@ document.write(`
 <li><p>éviter la redondance des données;</p></li>
 <li><p>de conserver les données, les enregistrer pour les réutiliser.</p></li>
 </ul>
-<p>La liste n’est pas exhaustive, d’autres actions sont possibles.</p>
-<p>Il existe une structure de donnée qui permet de respecter cet ensemble de contraintes et se présente sous forme de tables.</p>
-<p>On va réaliser une table de données regroupant des informations sur des personnalités qui ont contribué au développement de l’informatique. On va utiliser le modèle de fiche suivant:</p>
-<div class="center docutils container">
-<div class="pst-scrollable-table-container"><table class="table">
+<p>Les <code class="docutils literal notranslate"><span class="pre">tables</span></code> sont une structure de données qui respectent ces contraintes.</p>
+<p>Une <code class="docutils literal notranslate"><span class="pre">table</span></code> est un ensemble de colonnes qui ont chacune un <code class="docutils literal notranslate"><span class="pre">descripteur</span></code> et de lignes qui sont les différents <code class="docutils literal notranslate"><span class="pre">enregistrements</span></code> contenant des valeurs pour chaque <code class="docutils literal notranslate"><span class="pre">descripteur</span></code>.</p>
+<figure class="align-center" id="id1">
+<a class="reference internal image-reference" href="../_images/table_1.png"><img alt="../_images/table_1.png" src="../_images/table_1.png" style="width: 480px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Structure de table avec 3 enregistrements</span><a class="headerlink" href="#id1" title="Lien vers cette image">#</a></p>
+</figcaption>
+</figure>
+<div class="application admonition">
+<p class="admonition-title">Application</p>
+<p>On souhaite créer une table sur des personnalités qui ont contribué au développement de l’informatique. On va utiliser les descripteurs suivants :</p>
+<div class="pst-scrollable-table-container"><table class="table bordure">
 <tbody>
-<tr class="row-odd"><td><p>nom:</p></td>
-</tr>
-<tr class="row-even"><td><p>prénom:</p></td>
-</tr>
-<tr class="row-odd"><td><p>nationalité:</p></td>
-</tr>
-<tr class="row-even"><td><p>invention:</p></td>
+<tr class="row-odd"><td><p>nom</p></td>
+<td><p>prénom</p></td>
+<td><p>nationnalité</p></td>
+<td><p>invention</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-</div>
-<p>Créer trois fiches sur <strong>Alan Turing</strong>, <strong>John Conway</strong> et <strong>Ada Lovelace</strong> en effectuant les recherches sur wikipedia.</p>
-<section id="une-premiere-table">
-<h2>Une première table<a class="headerlink" href="#une-premiere-table" title="Lien vers cette rubrique">#</a></h2>
 <ol class="arabic simple">
-<li><p>Regrouper et organiser les données de ces trois fiches dans un même tableau.</p></li>
+<li><p>Rechercher les informations sur <code class="docutils literal notranslate"><span class="pre">Alan</span> <span class="pre">Turing</span></code>, <code class="docutils literal notranslate"><span class="pre">John</span> <span class="pre">Conway</span></code> et <code class="docutils literal notranslate"><span class="pre">Ada</span> <span class="pre">Lovelace</span></code> pour créer trois enregistrements.</p></li>
+<li><p>Regrouper et organiser les données de ces trois enregistrements en utilisant un tableur.</p></li>
 <li><p>Il existe des fichiers dont l’extension est <strong>csv</strong>.</p>
 <ol class="loweralpha simple">
 <li><p>Que signifie cette extension ? Quel est l’usage des fichiers <strong>csv</strong>.</p></li>
 <li><p>Donner des applications qui permettent de créer un fichier <strong>csv</strong> ?</p></li>
 </ol>
 </li>
-<li><p>Dans un tableur, saisissez les données des trois fiches puis enregistrer les données dans un fichier <code class="docutils literal notranslate"><span class="pre">table.csv</span></code> avec l’extension csv.</p></li>
-<li><p>Ouvrir votre fichier <code class="docutils literal notranslate"><span class="pre">table.csv</span></code> avec le bloc-notes et vérifier la cohérence des données, leur présentation.</p></li>
-<li><p>Ajouter dans le fichier <code class="docutils literal notranslate"><span class="pre">table.csv</span></code> ouvert avec le bloc-notes la fiche de <code class="docutils literal notranslate"><span class="pre">Guido</span> <span class="pre">von</span> <span class="pre">Rossum</span></code> puis enregistrer.</p></li>
-<li><p>Ouvrir le fichier <code class="docutils literal notranslate"><span class="pre">table.csv</span></code> avec un tableur et vérifier la présence de toutes les fiches.</p></li>
+<li><p>Enregistrer la table contenant les trois enregistrements dans un fichier <code class="docutils literal notranslate"><span class="pre">table.csv</span></code>.</p></li>
+<li><p>Ouvrir votre fichier <code class="docutils literal notranslate"><span class="pre">table.csv</span></code> avec le bloc-notes et vérifier la cohérence des données.</p></li>
+<li><p>Ajouter dans le fichier <code class="docutils literal notranslate"><span class="pre">table.csv</span></code> ouvert avec le bloc-notes un enregistrement sur <code class="docutils literal notranslate"><span class="pre">Guido</span> <span class="pre">von</span> <span class="pre">Rossum</span></code> puis enregistrer.</p></li>
+<li><p>Ouvrir le fichier <code class="docutils literal notranslate"><span class="pre">table.csv</span></code> avec un tableur et vérifier la présence de toutes les enregistrements.</p></li>
 </ol>
+</div>
 </section>
 <section id="table-en-python">
 <h2>Table en Python<a class="headerlink" href="#table-en-python" title="Lien vers cette rubrique">#</a></h2>
-<p>En python, une table peut se construire sous la forme d’une <strong>liste</strong> de <strong>dictionnaires</strong>. Comme Python est un langage de programmation, il permet de manipuler directement les données avec des scripts.</p>
+<p>En python, une table se construit sous la forme d’une <code class="docutils literal notranslate"><span class="pre">liste</span></code> de <code class="docutils literal notranslate"><span class="pre">dictionnaires</span></code>.</p>
+<ul class="simple">
+<li><p>Les <code class="docutils literal notranslate"><span class="pre">descripteurs</span></code> de la table sont les clés des dictionnaires.</p></li>
+<li><p>Il y a autant de dictionnaires que d’enregistrements.</p></li>
+</ul>
+<p>Par exemple, la table de l’illustration précédente se code en Python de la façon suivante:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">table</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span><span class="s1">&#39;descripteur 1&#39;</span><span class="p">:</span><span class="s1">&#39;valeur 1-1&#39;</span><span class="p">,</span><span class="s1">&#39;descripteur 2&#39;</span><span class="p">:</span> <span class="s1">&#39;valeur 1-2&#39;</span><span class="p">,</span> <span class="s1">&#39;descripteur 3&#39;</span><span class="p">:</span> <span class="s1">&#39;valeur 1-3&#39;</span><span class="p">,</span> <span class="s1">&#39;descripteur 4&#39;</span><span class="p">:</span> <span class="s1">&#39;valeur 1-4&#39;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s1">&#39;descripteur 1&#39;</span><span class="p">:</span><span class="s1">&#39;valeur 2-1&#39;</span><span class="p">,</span><span class="s1">&#39;descripteur 2&#39;</span><span class="p">:</span> <span class="s1">&#39;valeur 2-2&#39;</span><span class="p">,</span> <span class="s1">&#39;descripteur 3&#39;</span><span class="p">:</span> <span class="s1">&#39;valeur 2-3&#39;</span><span class="p">,</span> <span class="s1">&#39;descripteur 4&#39;</span><span class="p">:</span> <span class="s1">&#39;valeur 2-4&#39;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s1">&#39;descripteur 1&#39;</span><span class="p">:</span><span class="s1">&#39;valeur 3-1&#39;</span><span class="p">,</span><span class="s1">&#39;descripteur 2&#39;</span><span class="p">:</span> <span class="s1">&#39;valeur 3-2&#39;</span><span class="p">,</span> <span class="s1">&#39;descripteur 3&#39;</span><span class="p">:</span> <span class="s1">&#39;valeur 3-3&#39;</span><span class="p">,</span> <span class="s1">&#39;descripteur 4&#39;</span><span class="p">:</span> <span class="s1">&#39;valeur 13-4&#39;</span><span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>Comme Python est un langage de programmation, on manipule directement les données avec des scripts.</p>
+<div class="application admonition">
+<p class="admonition-title">Application</p>
 <ol class="arabic">
-<li><p>Écrire en Python la table <code class="docutils literal notranslate"><span class="pre">persinfo</span></code> regroupant les trois fiches. Chaque fiche est un dictionnaire et la table est la liste de ces dictionnaires.</p></li>
+<li><p>Créer en Python la table <code class="docutils literal notranslate"><span class="pre">persinfo</span></code> regroupant les enregistrements précédents.</p></li>
 <li><p>Dans l’interpréteur ou un éditeur python, saisir les commandes pour:</p>
 <ol class="loweralpha simple">
-<li><p>connaître le nombre de fiches;</p></li>
-<li><p>récupérer les clefs des fiches de la table;</p></li>
-<li><p>récupérer les nationalités des fiches de la table;</p></li>
-<li><p>tester la présence de Turing dans la table;</p></li>
+<li><p>connaître le nombre d’enregistrements;</p></li>
+<li><p>récupérer les descripteurs de la table;</p></li>
+<li><p>récupérer les nationalités des enregistrements de la table;</p></li>
+<li><p>tester la présence de <code class="docutils literal notranslate"><span class="pre">Turing</span></code> dans la table;</p></li>
 </ol>
 </li>
-<li><p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">chercher</span></code> qui a pour paramètres la table et une clef du dictionnaire (fiche) et qui renvoie la liste de toutes les valeurs de la table associée à cette clef. On effectuera un test d’existence de la clef !</p></li>
-<li><p>Rechercher avec votre fonction tous les noms présents dans la table.</p></li>
-<li><p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">est_present</span></code> qui a pour paramètres une table et une fiche dictionnaire et vérifie la présence de la fiche dans la table. La fonction renvoie <code class="docutils literal notranslate"><span class="pre">True</span></code> si la fiche est dans la table, <code class="docutils literal notranslate"><span class="pre">False</span></code> sinon.</p></li>
-<li><p>On souhaite créer une fonction <code class="docutils literal notranslate"><span class="pre">ajouter_fiche</span></code> qui ajoute une fiche dans la table si:</p>
+<li><p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">chercher</span></code> qui a pour paramètres la table et un descripteur et qui renvoie la liste de toutes les valeurs de la table associée à ce descripteur.</p>
+<p>Rechercher avec votre fonction tous les noms présents dans la table <code class="docutils literal notranslate"><span class="pre">persinfo</span></code>.</p>
+</li>
+<li><p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">est_present</span></code> qui a pour paramètres une table et un enregistrement et qui vérifie la présence de cet enregistrement dans la table. La fonction <code class="docutils literal notranslate"><span class="pre">est_present</span></code> renvoie un booléen.</p></li>
+<li><p>On souhaite créer une fonction <code class="docutils literal notranslate"><span class="pre">ajouter</span></code> qui ajoute un nouvel enregistrement dans la table si:</p>
 <ul class="simple">
-<li><p>la fiche a bien les mêmes clefs;</p></li>
+<li><p>l’enregistrement a bien les mêmes descripteurs;</p></li>
 <li><p>il y a au moins un nom, les autres valeurs peuvent être vides;</p></li>
-<li><p>la fiche n’est pas déjà dans la table.</p></li>
+<li><p>l’enregistrement n’est pas déjà dans la table.</p></li>
 </ul>
 <ol class="loweralpha simple">
-<li><p>Écrire la fonction qui a pour paramètres la table et un dictionnaire fiche.</p></li>
-<li><p>Ajouter avec votre fonction la fiche de Guido von Rossum.</p></li>
-<li><p>Tester votre fonction avec des cas particuliers : fiche vide, fiche déjà présente, fiche sans nom.</p></li>
+<li><p>Écrire la fonction <code class="docutils literal notranslate"><span class="pre">ajouter</span></code> qui a pour paramètres la table et un dictionnaire enregistrement.</p></li>
+<li><p>Ajouter avec votre fonction l’enregistrement de <code class="docutils literal notranslate"><span class="pre">Guido</span> <span class="pre">von</span> <span class="pre">Rossum</span></code>.</p></li>
+<li><p>Tester votre fonction avec des enregistrements particuliers :  vide, déjà présent, sans nom.</p></li>
 </ol>
 </li>
-<li><p>Créer une fonction <code class="docutils literal notranslate"><span class="pre">saisir_fiche</span></code> qui permet d’ajouter des fiches dans la table avec des <code class="docutils literal notranslate"><span class="pre">input</span></code>.</p></li>
 </ol>
+</div>
 </section>
 <section id="python-et-fichier-csv">
 <h2>Python et fichier csv<a class="headerlink" href="#python-et-fichier-csv" title="Lien vers cette rubrique">#</a></h2>
-<p>Il ne pas confondre les variables avec les données. Un programme s’écrit avec des variables qui vont stocker des données. Ces données peuvent être définies dans le programme, calculées par le programme, etc.</p>
-<p>Les données peuvent être saisies par l’utilisateur du programme. Un programme peut utiliser des données provenant d’un fichier structuré comme le csv.</p>
-<p>Il existe en Python un module <code class="docutils literal notranslate"><span class="pre">csv</span></code> qui permet :</p>
+<p>Un programme Python peut utiliser des données provenant d’un fichier structuré comme le csv. Une fois chargé, la table est enregistrée dans une variable en étant transformée en liste de dictionnaires.</p>
+<p>Cette transformation des données se réalise avec le module <code class="docutils literal notranslate"><span class="pre">csv</span></code> qui permet :</p>
 <ul class="simple">
 <li><p>de récupérer les données contenues dans un fichier <code class="docutils literal notranslate"><span class="pre">csv</span></code> sous forme de table;</p></li>
 <li><p>d’ajouter, enregistrer les données d’une table python dans un fichier <code class="docutils literal notranslate"><span class="pre">csv</span></code>.</p></li>
 </ul>
 <p>L’accès aux données contenues dans un fichier csv se fait avec la commande <code class="docutils literal notranslate"><span class="pre">with</span> <span class="pre">open</span></code>. Elle prend différents paramètres :</p>
 <ul class="simple">
-<li><p>le nom du fichier csv avec le chemin d’accès;</p></li>
+<li><p>le nom du fichier avec le chemin d’accès;</p></li>
 <li><p>le mode d’accès: <code class="docutils literal notranslate"><span class="pre">mode='r'</span></code> pour lire un contenu, <code class="docutils literal notranslate"><span class="pre">mode='w'</span></code> pour écrire un contenu et <code class="docutils literal notranslate"><span class="pre">mode='a'</span></code> pour ajouter du contenu;</p></li>
 <li><p>l’encodage de caractères du fichier à lire : <code class="docutils literal notranslate"><span class="pre">encoding='utf8'</span></code></p></li>
 <li><p>l’ajout d’une ligne vide pour l’écriture: <code class="docutils literal notranslate"><span class="pre">newline=''</span></code></p></li>
+<li><p>en fin de ligne on utilise la commande <code class="docutils literal notranslate"><span class="pre">as</span></code> pour créer un alias du nom de fichier ouvert.</p></li>
 </ul>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">Python</span><a class="headerlink" href="#id2" title="Lien vers ce code">#</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">fichier</span><span class="p">,</span> <span class="n">mode</span> <span class="o">=</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">encoding</span> <span class="o">=</span> <span class="s1">&#39;utf8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</pre></div>
+</div>
+</div>
+<div class="application admonition">
+<p class="admonition-title">Application</p>
 <ol class="arabic">
 <li><p>Importer le module csv de python : <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">csv</span></code></p></li>
 <li><p>Pour lire le contenu d’un fichier csv, on crée la fonction suivante :</p>
@@ -446,6 +475,7 @@ document.write(`
 </ul>
 </li>
 </ol>
+</div>
 </section>
 </section>
 
@@ -485,7 +515,7 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#une-premiere-table">Une première table</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stucture-d-une-table">Stucture d’une table</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-en-python">Table en Python</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-et-fichier-csv">Python et fichier csv</a></li>
 </ul>
